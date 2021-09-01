@@ -1,0 +1,360 @@
+########## Auth ##########
+
+POST http://localhost:3000/v1/auth/register HTTP/1.1
+Accept: application/json
+Content-Type:application/json
+
+{
+    "name": "Lamees",
+    "email": "lamisalymnni@gmail.com",
+    "password": "sdddfge$#r4rd"
+}
+###
+
+POST http://localhost:3000/v1/auth/login HTTP/1.1
+Accept: application/json
+Content-Type:application/json
+
+{
+    "email": "lamisalymni@gmail.com",
+    "password": "sdddfge$#r4rd"
+}
+###
+
+POST http://localhost:3000/v1/auth/logout HTTP/1.1
+Accept: application/json
+Content-Type:application/json
+
+{
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MDgwYjZiN2UzM2U3YTc1YThjNzI2OTYiLCJpYXQiOjE2MTkwNDk0NzAsImV4cCI6MTYyMTY0MTQ3MCwidHlwZSI6InJlZnJlc2gifQ.XGasvdqWD70K5kbnTMwBPPhUKHvTpMUGLd3sSiuSxmk"
+}
+
+###
+
+POST http://localhost:3000/v1/auth/refresh-tokens HTTP/1.1
+Accept: application/json
+Content-Type:application/json
+
+{
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MDgwYjZiN2UzM2U3YTc1YThjNzI2OTYiLCJpYXQiOjE2MTkwNDk1MjYsImV4cCI6MTYyMTY0MTUyNiwidHlwZSI6InJlZnJlc2gifQ.iiwFHHDhhKTg8GyprMa9JK5zba3bJMglByFCFKnpCXI"
+}
+###
+
+
+########## User ##########
+
+POST http://localhost:3000/v1/users HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MDgwYmQ2OThiYjdiMjc2NmIwMGZhYzgiLCJpYXQiOjE2MTkwNDk4NjYsImV4cCI6MTYxOTA1MTY2NiwidHlwZSI6ImFjY2VzcyJ9.m-0QnRXT7rls9GF-WxrXWXxxU8MFPa6no00f1pf5FeI
+
+{
+    "name": "Ahmad",
+    "email": "abccss@gmail.com",
+    "password": "sdddfge$#r4rd",
+    "type": "admin"
+}
+
+###
+
+GET http://localhost:3000/v1/users HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MGI0YTA2YmY4OTFiYzY2YjYzNzZkODAiLCJpYXQiOjE2MjI0NTAyODMsImV4cCI6MTYyMjQ1MjA4MywidHlwZSI6ImFjY2VzcyJ9.n_Zig0IN7RruhMYdLdVStD2W2bk8DwWGHLIn8w1eHaY
+
+###
+
+GET http://localhost:3000/v1/users/6080bd698bb7b2766b00fac8 HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MDgwYmQ2OThiYjdiMjc2NmIwMGZhYzgiLCJpYXQiOjE2MTk2MTM2OTMsImV4cCI6MTYxOTYxNTQ5MywidHlwZSI6ImFjY2VzcyJ9.TrgT0b6syvbGuhc01DRzfVMrf9CXdKl8wzEYS5-DZis
+
+###
+
+PATCH http://localhost:3000/v1/users/6080bdf28bb7b2766b00face HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MGI0YTA2YmY4OTFiYzY2YjYzNzZkODAiLCJpYXQiOjE2MjI0NTAyODMsImV4cCI6MTYyMjQ1MjA4MywidHlwZSI6ImFjY2VzcyJ9.n_Zig0IN7RruhMYdLdVStD2W2bk8DwWGHLIn8w1eHaY
+
+{
+     "roles": ["6080c0c98bb7b2766b00fadb"]
+}
+
+###
+
+DELETE http://localhost:3000/v1/users/6080b76ce33e7a75a8c7269b HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MDgwYjZiN2UzM2U3YTc1YThjNzI2OTYiLCJpYXQiOjE2MTkwNDgyODQsImV4cCI6MTYxOTA1MDA4NCwidHlwZSI6ImFjY2VzcyJ9.7wwnWmX1FdjPqob2Qx1JIdClBnjfzNOte8IWCOVzO-Y
+
+
+########## Space ##########
+POST http://localhost:3000/v1/spaces HTTP/1.1
+Accept: application/json
+Content-Type:application/json
+
+{
+     "name": "Anat"
+}
+
+###
+
+GET http://localhost:3000/v1/spaces?limit=20 HTTP/1.1
+Accept: application/json
+Content-Type:application/json
+
+###
+
+GET http://localhost:3000/v1/spaces/607d73a7f2a20c3bf7597e4f HTTP/1.1
+Accept: application/json
+Content-Type:application/json
+
+###
+
+PATCH http://localhost:3000/v1/spaces/607d73a7f2a20c3bf7597e4f HTTP/1.1
+Accept: application/json
+Content-Type:application/json
+
+{
+     "name": "space test 2"
+}
+
+###
+
+DELETE http://localhost:3000/v1/spaces/607d73a7f2a20c3bf7597e4f HTTP/1.1
+Accept: application/json
+Content-Type:application/json
+
+
+########## Status ##########
+POST http://localhost:3000/v1/statuses HTTP/1.1
+Accept: application/json
+Content-Type:application/json
+
+{
+     "name": "published",
+     "space": "6080be618bb7b2766b00fad0",
+     "publisher":"true"
+}
+
+###
+
+GET http://localhost:3000/v1/statuses?limit=20 HTTP/1.1
+Accept: application/json
+Content-Type:application/json
+
+###
+
+GET http://localhost:3000/v1/statuses/608021604223d56351a91958 HTTP/1.1
+Accept: application/json
+Content-Type:application/json
+
+###
+
+PATCH http://localhost:3000/v1/statuses/6080bfc68bb7b2766b00fad6 HTTP/1.1
+Accept: application/json
+Content-Type:application/json
+
+{
+     "publisher": "true"
+}
+
+###
+
+DELETE http://localhost:3000/v1/statuses/608021604223d56351a91958 HTTP/1.1
+Accept: application/json
+Content-Type:application/json
+
+########## Role ##########
+POST http://localhost:3000/v1/roles HTTP/1.1
+Accept: application/json
+Content-Type:application/json
+
+{
+     "name": "Publisher",
+     "space": "6080be5b8bb7b2766b00facf",
+     "permissions": {
+      "view": ["6080bfbb8bb7b2766b00fad4"],
+      "update_content": [],
+      "update_to_status": ["6080bfc68bb7b2766b00fad6"],
+      "publish": []
+     }
+}
+
+###
+
+GET http://localhost:3000/v1/roles?limit=20 HTTP/1.1
+Accept: application/json
+Content-Type:application/json
+
+###
+
+GET http://localhost:3000/v1/roles/607fe7814bde9c5de5dc0ccc HTTP/1.1
+Accept: application/json
+Content-Type:application/json
+
+###
+
+PATCH http://localhost:3000/v1/roles/6080c0a18bb7b2766b00fada HTTP/1.1
+Accept: application/json
+Content-Type:application/json
+
+{
+     "update_to_status": ["6080bfbb8bb7b2766b00fad4","6080bfbf8bb7b2766b00fad5"]
+}
+
+###
+
+DELETE http://localhost:3000/v1/roles/607f2726e2b74957435c3299 HTTP/1.1
+Accept: application/json
+Content-Type:application/json
+
+########## Tag ##########
+POST http://localhost:3000/v1/tags HTTP/1.1
+Accept: application/json
+Content-Type:application/json
+
+{
+     "name": "audienceTypeA",
+     "space": "6080be618bb7b2766b00fad0"
+}
+
+###
+
+GET http://localhost:3000/v1/tags?limit=20 HTTP/1.1
+Accept: application/json
+Content-Type:application/json
+
+###
+
+GET http://localhost:3000/v1/tags/6080251216fd9d6400c22c31 HTTP/1.1
+Accept: application/json
+Content-Type:application/json
+
+###
+
+PATCH http://localhost:3000/v1/tags/6080251216fd9d6400c22c31 HTTP/1.1
+Accept: application/json
+Content-Type:application/json
+
+{
+     "name": "tag patch test"
+}
+
+###
+
+DELETE http://localhost:3000/v1/tags/6080251216fd9d6400c22c31 HTTP/1.1
+Accept: application/json
+Content-Type:application/json
+
+
+########## Type ##########
+POST http://localhost:3000/v1/types HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+{
+     "name": "Carousel",
+     "schema": [
+             {
+     "name": "image 1",
+     "field": "text",
+     "position": "1",
+     "required": "true",
+     "description": "url of first image",
+     "regex": "/[a-zA-Z]/",
+     "rtl": "false"
+    },
+    {
+     "name": "image 2",
+     "field": "text",
+     "position": "2",
+     "required": "true",
+     "description": "url of second image",
+     "regex": "/[a-zA-Z]/",
+     "rtl": "false"
+    }
+     ],
+     "space": "6080be618bb7b2766b00fad0"
+}
+
+###
+
+GET http://localhost:3000/v1/types?limit=20&spaceId=607d73a7f2a20c3bf7597e4f HTTP/1.1
+Accept: application/json
+Content-Type:application/json
+
+###
+
+GET http://localhost:3000/v1/types/608089fefe78aa6f4ad2c3b9 HTTP/1.1
+Accept: application/json
+Content-Type:application/json
+
+###
+PATCH http://localhost:3000/v1/types/608085a4dc6c9b6f208d6586 HTTP/1.1
+Accept: application/json
+Content-Type:application/json
+
+{
+     "name": "type patch test 2"
+}
+
+###
+
+DELETE http://localhost:3000/v1/types/608085a4dc6c9b6f208d6586 HTTP/1.1
+Accept: application/json
+Content-Type:application/json
+
+########## Content ##########
+POST http://localhost:3000/v1/content HTTP/1.1
+Accept: application/json
+Content-Type:application/json
+
+{
+     "name": "poster in hayat",
+     "tags_list": ["6080c2bf8bb7b2766b00fadd","6080c2bb8bb7b2766b00fadc"],
+     "data": {
+          "ar_title": "نصائح صحية",
+          "en_title": "Healthy tips",
+          "url": "https://post.healthline.com/wp-content/uploads/2020/09/healthy-eating-ingredients-1200x628-facebook-1200x628.jpg"
+     },
+     "published": "false",
+     "author": "6080bdb18bb7b2766b00facb",
+     "type": "6080c6e512adf877541f68aa",
+     "space":"6080be5b8bb7b2766b00facf",
+     "status":"6080bfa58bb7b2766b00fad2"
+}
+
+###
+
+GET http://localhost:3000/v1/content?space=6080be5b8bb7b2766b00facf HTTP/1.1
+Accept: application/json
+Content-Type:application/json
+
+###
+
+GET http://localhost:3000/v1/content/6080be5b8bb7b2766b00facf HTTP/1.1
+Accept: application/json
+Content-Type:application/json
+
+###
+
+PATCH http://localhost:3000/v1/content/60809b994bb7b5721ef1db53 HTTP/1.1
+Accept: application/json
+Content-Type:application/json
+
+{
+     "name": "content patch test"
+}
+
+###
+
+DELETE http://localhost:3000/v1/content/60809b974bb7b5721ef1db51 HTTP/1.1
+Accept: application/json
+Content-Type:application/json
+
+
+
+
+###
+GET http://localhost:3000/v1/docs HTTP/1.1
